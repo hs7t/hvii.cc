@@ -12,3 +12,17 @@
 	padding: 0;
 	margin: 0;
 }
+
+section {
+	display: flex;
+	flex-direction: column;
+	gap: 1.2rem;
+}
+
+.paragraph-block {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+
+	gap: 0.5rem;
+}
