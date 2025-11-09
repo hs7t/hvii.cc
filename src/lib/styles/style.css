@@ -28,6 +28,10 @@ section {
 	padding: 2rem;
 }
 
+h1, h2, h3, h4, h5 {
+	color: var(--w-color-accent-A);
+}
+
 .paragraph-block {
 	display: flex;
 	flex-direction: column;
