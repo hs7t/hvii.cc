@@ -18,6 +18,7 @@ section {
 	display: flex;
 	flex-direction: column;
 	gap: 1.2rem;
+	padding: 2rem;
 }
 
 .paragraph-block {
@@ -26,4 +27,8 @@ section {
 	width: 100%;
 
 	gap: 0.5rem;
+}
+
+a {
+	color: inherit;
 }
