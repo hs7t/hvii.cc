@@ -1,5 +1,5 @@
 export const load = () => {
 	return {
-		title: 'hvii.cc'
+		title: "Ali's website!"
 	};
 };
