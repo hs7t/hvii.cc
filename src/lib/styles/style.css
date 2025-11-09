@@ -1,14 +1,14 @@
 :root {
-	--w-font-family-primary: 		Arial, Inter, system-ui, sans-serif;
-	--w-font-size-A: 				1.2rem;
+	--w-font-family-primary: Arial, Inter, system-ui, sans-serif;
+	--w-font-size-A: 1.2rem;
 
-	--w-color-accent-A:				#003cff;
-	--w-color-accent-A-contrast:	#ffffff;
-	--w-color-content-A: 			#000000;
-	--w-color-background-A: 		#ffffff;
+	--w-color-accent-A: #003cff;
+	--w-color-accent-A-contrast: #ffffff;
+	--w-color-content-A: #000000;
+	--w-color-background-A: #ffffff;
 
-	--w-border-general:				solid 1.2pt var(--w-color-accent-A);
-	--w-border-attention:			dashed 1.2pt var(--w-color-accent-A)
+	--w-border-general: solid 1.2pt var(--w-color-accent-A);
+	--w-border-attention: dashed 1.2pt var(--w-color-accent-A);
 }
 
 * {
@@ -26,10 +26,17 @@ section {
 	display: flex;
 	flex-direction: column;
 	gap: 1.2rem;
+}
+
+section.primary {
 	padding: 2rem;
 }
 
-h1, h2, h3, h4, h5 {
+h1,
+h2,
+h3,
+h4,
+h5 {
 	color: var(--w-color-accent-A);
 }
 

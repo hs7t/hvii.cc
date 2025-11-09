@@ -4,7 +4,7 @@
 	let birthDate = moment([2009, 7, 15]);
 </script>
 
-<section id="about-me">
+<section id="about-me" class="primary">
 	<h1>Hello!</h1>
 	<div class="paragraph-block">
 		<p>
