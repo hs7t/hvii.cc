@@ -1,7 +1,7 @@
 :root {
 	--w-font-family-primary: Inter, system-ui, sans-serif;
 	--w-font-size-A: 1.2rem;
-	--w-font-size-B: 0.9rem;
+	--w-font-size-B: 1rem;
 
 	--w-color-accent-A: #003cff;
 	--w-color-accent-A-contrast: #ffffff;
