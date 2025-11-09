@@ -13,11 +13,11 @@
 </svelte:head>
 
 <header id="header">
-	<div class="website-info">
+	<div class="section website-info">
 		<a href="#navigation">placeholder</a>
 		<p><a href="/">hvii.cc</a></p>
 	</div>
-	<div class="site-details">
+	<div class="section site-details">
 		<p>{data.title}</p>
 	</div>
 </header>
@@ -33,3 +33,42 @@
 		<li>Writing</li>
 	</ul>
 </nav>
+
+<style>
+	header {
+		display: flex;
+		flex-direction: column;
+	}
+
+	header .section {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+
+		padding: 0.8rem;
+		flex-grow: 1;
+	}
+
+	header .section.website-info {
+		background-color: var(--w-color-accent-A);
+		color: var(--w-color-accent-A-contrast);
+	}
+
+	nav ul {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+
+		padding: 0.8rem;
+		flex-grow: 1;
+	}
+
+	nav ul li {
+		list-style: none;
+	}
+
+	main, header .section, nav {
+		border: var(--w-border-general);
+		border-top: unset;
+	}
+</style>
