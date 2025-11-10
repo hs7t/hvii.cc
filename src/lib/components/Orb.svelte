@@ -4,6 +4,7 @@
 
 <button
 	onclick={() => {
+        location.hash = '';
 		location.hash = '#navigation';
 	}}
 	aria-label="Scroll to navigation"
