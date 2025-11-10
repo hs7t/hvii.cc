@@ -1,8 +1,82 @@
 :root {
-	--w-font-family-primary-A: Arial, Inter, system-ui, sans-serif;
+	--w-font-family-primary: Inter, system-ui, sans-serif;
 	--w-font-size-A: 1.2rem;
+	--w-font-size-B: 1rem;
 
 	--w-color-accent-A: #003cff;
+	--w-color-accent-A-contrast: #ffffff;
 	--w-color-content-A: #000000;
 	--w-color-background-A: #ffffff;
+
+	--w-border-general: solid 1.2pt var(--w-color-accent-A);
+	--w-border-attention: dashed 1.2pt var(--w-color-accent-A);
+}
+
+* {
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+}
+
+body {
+	font-family: var(--w-font-family-primary);
+	font-size: var(--w-font-size-A);
+
+	word-wrap: break-word;
+	text-wrap: pretty;
+}
+
+section, article {
+	display: flex;
+	flex-direction: column;
+	gap: 1.2rem;
+}
+
+section.primary, article.primary {
+	padding: 2rem;
+}
+
+h1 {
+	color: var(--w-color-accent-A);
+}
+
+p {
+	line-height: 1.6;
+}
+
+.paragraph-block {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+
+	gap: 0.5rem;
+}
+
+a {
+	color: inherit;
+}
+
+::selection {
+	background-color: var(--w-color-accent-A);
+	color: var(--w-color-accent-A-contrast);
+}
+
+* {
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+}
+
+section {
+	display: flex;
+	flex-direction: column;
+	gap: 1.2rem;
+}
+
+.paragraph-block {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+
+	gap: 0.5rem;
 }

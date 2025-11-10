@@ -1,4 +1,7 @@
 <script lang="ts">
+	import Header from '$lib/components/Header.svelte';
+	import Navigation from '$lib/components/Navigation.svelte';
+	import { page } from '$app/state';
 	import '$lib/styles/style.css';
 
 	let { children, data } = $props();
@@ -9,27 +12,25 @@
 
 <svelte:head>
 	<link rel="icon" href={favicon} />
-	<title>{data.title}</title>
+	<title>{page.data.title}</title>
 </svelte:head>
 
-<header id="header">
-	<div class="website-info">
-		<a href="#navigation">placeholder</a>
-		<p><a href="/">hvii.cc</a></p>
-	</div>
-	<div class="site-details">
-		<p>{data.title}</p>
-	</div>
-</header>
+<div id="main-container">
+	<Header title={page.data.title} />
+	<main>
+		{@render children()}
+	</main>
+	<Navigation id="navigation" />
+</div>
 
-<main>
-	{@render children()}
-</main>
+<style>
+	#main-container {
+		width: clamp(40dvw, 100dvw, 600px);
+		margin: auto;
+	}
 
-<nav id="navigation">
-	<ul>
-		<li>About</li>
-		<li>Projects</li>
-		<li>Writing</li>
-	</ul>
-</nav>
+	main {
+		border: var(--w-border-general);
+		border-top: unset;
+	}
+</style>

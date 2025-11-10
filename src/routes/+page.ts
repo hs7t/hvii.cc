@@ -1,5 +1,5 @@
 export const load = () => {
 	return {
-		title: "Ali's website!"
+		title: 'About me'
 	};
 };
