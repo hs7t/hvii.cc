@@ -1,11 +1,13 @@
 <script lang="ts">
+	import Orb from './Orb.svelte';
+
 	let { title } = $props();
 </script>
 
 <header id="header">
 	<div class="section website-info">
+		<Orb />
 		<p><a href="/">hvii.cc</a></p>
-		<a href="#navigation">hop to navigation</a>
 	</div>
 	<div class="section page-info">
 		<p>{title}</p>
