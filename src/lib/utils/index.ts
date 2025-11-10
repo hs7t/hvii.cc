@@ -17,18 +17,20 @@ const fetchMarkdownPosts = async (allPostFiles: Record<string, any>) => {
 	return allPosts;
 };
 
-export const fetchPoetryPosts = async () => {
-	return (await fetchMarkdownPosts(import.meta.glob('/src/routes/writing/poetry/*.md'))).sort(
+const sortByDate = (array: Array<any>) => {
+	return array.sort(
 		(a, b) => new Date(b.meta.date).getTime() - new Date(a.meta.date).getTime()
 	);
+}
+
+export const fetchPoetryPosts = async () => {
+	return sortByDate(
+		(await fetchMarkdownPosts(import.meta.glob('/src/routes/writing/poetry/*.md')))
+	)
 };
 
-/* export const fetchSortedMarkdownPosts = async () => {
-	const allPosts = await fetchMarkdownPosts();
-	const sortedPosts = allPosts.sort((a, b) => {
-		return new Date(b.meta.date) - new Date(a.meta.date);
-	});
-
-	return sortedPosts;
+export const fetchPicturePosts = async () => {
+	return sortByDate(
+		(await fetchMarkdownPosts(import.meta.glob('/src/routes/pictures/*.md')))
+	)
 };
- */
