@@ -18,6 +18,11 @@
 	margin: 0;
 }
 
+html {
+	overflow: auto;
+	scrollbar-gutter: stable;
+}
+
 body {
 	font-family: var(--w-font-family-primary);
 	font-size: var(--w-font-size-A);
