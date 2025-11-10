@@ -26,13 +26,13 @@ body {
 	text-wrap: pretty;
 }
 
-section {
+section, article {
 	display: flex;
 	flex-direction: column;
 	gap: 1.2rem;
 }
 
-section.primary {
+section.primary, article.primary {
 	padding: 2rem;
 }
 
