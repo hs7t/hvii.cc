@@ -1,6 +1,6 @@
 ---
 title: Good things wither when they grace my hands
-date: '2025'
+date: '2025-06-17'
 ---
 
 It all crumbles into fine soft sands; <br>

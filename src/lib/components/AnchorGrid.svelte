@@ -34,7 +34,7 @@
 		background-color: var(--w-color-accent-A);
 		color: var(--w-color-accent-A-contrast);
 
-		line-height: 0.8;
+		line-height: 1;
 		font-size: var(--w-font-size-B);
 		overflow: visible;
 	}
