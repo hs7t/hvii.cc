@@ -14,11 +14,13 @@ const fetchMarkdownPosts = async (allPostFiles: Record<string, any>) => {
 		})
 	);
 
-	return allPosts.sort((a, b) => new Date(b.meta.date).getTime() - new Date(a.meta.date).getTime());
+	return allPosts;
 };
 
 export const fetchPoetryPosts = async () => {
-	return fetchMarkdownPosts(import.meta.glob('/src/routes/writing/poetry/*.md'));
+	return (await fetchMarkdownPosts(import.meta.glob('/src/routes/writing/poetry/*.md'))).sort(
+		(a, b) => new Date(b.meta.date).getTime() - new Date(a.meta.date).getTime()
+	);
 };
 
 /* export const fetchSortedMarkdownPosts = async () => {
