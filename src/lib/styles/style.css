@@ -54,6 +54,7 @@ ul {
 	list-style-type: "— ";
 }
 
+ul li,
 p {
 	line-height: 1.6;
 }
