@@ -8,6 +8,7 @@
 		location: string;
 		date: string;
         href: string;
+        alt: string;
 	};
 
     onMount(async () => {
@@ -37,8 +38,10 @@
 
 	{#each items as item}
 		<div class="grid-item">
-            <img src={item.href} alt=""> <!-- TODO: ADD ALT TEXT!!! EXTREMELY IMPORTANT-->
-            <p>{item.location}<br>{item.date}</p>
+            <a href={item.href}>
+                <img src={item.href} alt={item.alt}> <!-- TODO: ADD ALT TEXT!!! EXTREMELY IMPORTANT-->
+                <p>{item.location}<br>{item.date}</p>
+            </a>
 		</div>
 	{/each}
 </div>

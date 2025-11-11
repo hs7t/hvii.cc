@@ -4,7 +4,9 @@
 
 	type PicturePost = {
 		date: string,
-		href: string
+		href: string,
+		location: string,
+		alt: string,
 	}
 
 	let posts = $derived(
@@ -12,6 +14,7 @@
 			date: post.meta.date,
 			href: post.meta.href,
             location: post.meta.location,
+			alt: post.meta.alt,
 		} as PicturePost))
 	);
 </script>
