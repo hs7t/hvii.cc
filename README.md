@@ -1,38 +1,40 @@
-# sv
+# hvii.cc
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+My personal website! Built as a static site with SvelteKit. Includes
+sections for poetry, projects and pictures! Created with a lot of help
+from Josh Collinsworth's 
+[awesome guide](https://joshcollinsworth.com/blog/build-static-sveltekit-markdown-blog)
 
-## Creating a project
+## Tech used
+-   [SvelteKit](https://kit.svelte.dev/)
+-   [MDsveX](https://github.com/pngwn/MDsveX) and 
+    [adapter-static](https://svelte.dev/docs/kit/adapter-static)
+-   [Prettier](https://prettier.dev/) and 
+    [TypeScript](https://www.typescriptlang.org/)
+-   [Masonry](https://masonry.desandro.com/) and
+    [imagesloaded](https://imagesloaded.desandro.com/)
 
-If you're seeing this, you've probably already done this step. Congrats!
+## Running this yourself
 
-```sh
-# create a new project in the current directory
-npx sv create
+1.  Reconsider. Why would you want to do this? No. Use a template. Follow
+[Josh's guide](https://joshcollinsworth.com/blog/build-static-sveltekit-markdown-blog).
+    Be kind to yourself.
 
-# create a new project in my-app
-npx sv create my-app
-```
+2.  Clone this repo, and install all the necessary dependencies:
+    ```bash
+    $ git clone https://github.com
+    $ npm i
+    ``` 
+3.  Run a development server:
+    ```
+    $ npm run dev
+    ```
 
-## Developing
+4.  Get a build when you're ready:
+    ```
+    npm run build   # check out ./dist afterward!
+    ```
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```sh
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
-
-## Building
-
-To create a production version of your app:
-
-```sh
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+## About
+This project has been on my mind for a while! It was initially
+created for week 6 of Hack Club's [Siege](https://siege.hackclub.com/)
