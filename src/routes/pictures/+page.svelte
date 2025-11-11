@@ -17,7 +17,11 @@
 </script>
 <section class="primary">
     <h1>Pictures</h1>
-
+    <p>
+        I'm not one to shoot great pictures, but I enjoy trying to 
+        do so. This page contains some of my favorite pictures I've
+        taken.
+    </p>
     <section>
         <ImageGrid items={posts} />
     </section>
