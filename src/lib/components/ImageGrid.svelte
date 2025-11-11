@@ -17,8 +17,9 @@
 
             let masonry = new Masonry(element, {
                 itemSelector: '.grid-item',
-                columnWidth: 200,
-                gutter: 10
+                gutter: '.gutter-sizer',
+                columnWidth: '.grid-sizer',
+                percentPosition: true,
             });
 
             imagesLoaded(element, () => {
@@ -31,9 +32,13 @@
 </script>
 
 <div class="image-grid" bind:this={element}>
+    <div class="grid-sizer"></div>
+    <div class="gutter-sizer"></div>
+
 	{#each items as item}
 		<div class="grid-item">
             <img src={item.href} alt=""> <!-- TODO: ADD ALT TEXT!!! EXTREMELY IMPORTANT-->
+            <p>{item.location}<br>{item.date}</p>
 		</div>
 	{/each}
 </div>
@@ -41,12 +46,24 @@
 <style>
     .image-grid {
         width: 100%;
+        container-name: word-container;
     }
 
+    .grid-sizer,
 	.grid-item {
-        width: 200px;
-        margin-bottom: 10px;
-        height: auto;
+        width: 30%;
+        margin-bottom: 5%;
+    }
+
+    .grid-item {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5em;
+        font-size: var(--w-font-size-B);
+    }
+
+    .gutter-sizer {
+        width: 5%;
     }
 
     .grid-item img {
