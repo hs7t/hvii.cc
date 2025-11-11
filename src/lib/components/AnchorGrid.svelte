@@ -1,6 +1,6 @@
 <script lang="ts">
 	type GridItem = {
-		name: string;
+		title: string;
 		anchor: string;
 	};
 
@@ -12,7 +12,7 @@
 		<div class="grid-item">
 			<a href={item.anchor}>
 				<div class="content">
-					{item.name}
+					{item.title}
 				</div>
 			</a>
 		</div>
