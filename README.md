@@ -22,7 +22,7 @@ from Josh Collinsworth's
 
 2.  Clone this repo, and install all the necessary dependencies:
     ```bash
-    $ git clone https://github.com
+    $ git clone https://github.com/hs7t/hviicc.git
     $ npm i
     ``` 
 3.  Run a development server:
