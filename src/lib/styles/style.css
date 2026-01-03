@@ -29,6 +29,9 @@ body {
 	color: var(--w-color-content-A);
 	word-wrap: break-word;
 	text-wrap: pretty;
+
+	background-image: url('https://hc-cdn.hel1.your-objectstorage.com/s/v3/9bcc2c93adbe3a03_bl__haj-spin.gif');
+	background-size: fill;
 }
 
 section,
@@ -51,7 +54,7 @@ ul {
 	display: flex;
 	flex-direction: column;
 	gap: 0.4em;
-	list-style-type: "— ";
+	list-style-type: '— ';
 }
 
 ul li,
