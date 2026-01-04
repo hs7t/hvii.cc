@@ -1,8 +1,6 @@
 ---
-date: '2025-01-01'
-location: meow
-href: https://i.imgur.com/meow.jpeg
-alt: meow
+date: '2025-01-11'
+location: Buenavista, CO-QUI
+href: https://i.imgur.com/oKVZJvr.jpeg
+alt: A landscape picture of Buenavista, Quindío. A church and city buildings are raised on top of a mountain.
 ---
-
-meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow
