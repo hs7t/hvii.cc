@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { onMount } from 'svelte';
+	import { goto } from '$app/navigation';
 	import Header from '$lib/components/Header.svelte';
 	import Navigation from '$lib/components/Navigation.svelte';
 	import { page } from '$app/state';
@@ -8,6 +10,39 @@
 
 	let favicon =
 		'data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>☀️</text></svg>';
+
+	// Konami code easter egg!
+	onMount(() => {
+		const konamiCode = [
+			'ArrowUp',
+			'ArrowUp',
+			'ArrowDown',
+			'ArrowDown',
+			'ArrowLeft',
+			'ArrowRight',
+			'ArrowLeft',
+			'ArrowRight',
+			'KeyB',
+			'KeyA'
+		];
+		let konamiIndex = 0;
+
+		const handleKeyDown = (e: KeyboardEvent) => {
+			if (e.code === konamiCode[konamiIndex]) {
+				konamiIndex++;
+				if (konamiIndex === konamiCode.length) {
+					// Easter egg activated!
+					konamiIndex = 0;
+					goto('/secret');
+				}
+			} else {
+				konamiIndex = 0;
+			}
+		};
+
+		window.addEventListener('keydown', handleKeyDown);
+		return () => window.removeEventListener('keydown', handleKeyDown);
+	});
 </script>
 
 <svelte:head>
