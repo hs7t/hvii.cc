@@ -1,8 +1,9 @@
 <script lang="ts">
 	let { isOpen, onClose } = $props();
 
-	const MIN_RESPONSE_DELAY = 500;
-	const MAX_RESPONSE_DELAY = 1500;
+	const GEMINI_API_KEY = 'AIzaSyCKtABCvdtkU10JYPrEv-79VCWLwlu4lvs';
+	const GEMINI_API_URL =
+		'https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent';
 
 	let messages = $state<Array<{ role: 'user' | 'assistant'; content: string }>>([
 		{
@@ -34,47 +35,59 @@
 		scrollToBottom();
 
 		try {
-			// Simple mock AI response - in production, this would call an actual AI API
-			const delay = MIN_RESPONSE_DELAY + Math.random() * (MAX_RESPONSE_DELAY - MIN_RESPONSE_DELAY);
-			await new Promise((resolve) => setTimeout(resolve, delay));
+			// Call the Gemini API directly
+			const systemPrompt = `You are a helpful assistant for a personal website (hvii.cc). The website has the following sections:
+- Poetry/Writing: Features various poems and writing pieces
+- Pictures: A gallery of images
+- Projects: Showcases various projects
+- A secret page accessible via the Konami code (↑ ↑ ↓ ↓ ← → ← → B A)
 
-			let response = '';
-			const lowerMessage = userMessage.toLowerCase();
+The site is built with SvelteKit, TypeScript, MDsveX for markdown content, and Masonry for image layouts.
 
-			if (lowerMessage.includes('poetry') || lowerMessage.includes('writing')) {
-				response =
-					'This website features poetry and writing! You can check out the writing section from the navigation menu to read various poems.';
-			} else if (lowerMessage.includes('picture') || lowerMessage.includes('photo')) {
-				response =
-					'The pictures section showcases a collection of images. You can browse them through the navigation menu.';
-			} else if (lowerMessage.includes('project')) {
-				response =
-					"The projects section displays various projects. Check it out from the navigation menu to see what's been built!";
-			} else if (lowerMessage.includes('secret') || lowerMessage.includes('easter egg')) {
-				response = 'There might be a secret page... Try the Konami code! (↑ ↑ ↓ ↓ ← → ← → B A)';
-			} else if (lowerMessage.includes('who') || lowerMessage.includes('owner')) {
-				response =
-					'This is a personal website built with SvelteKit! You can learn more by exploring the different sections.';
-			} else if (
-				lowerMessage.includes('how') ||
-				lowerMessage.includes('built') ||
-				lowerMessage.includes('tech')
-			) {
-				response =
-					'This website is built using SvelteKit with TypeScript, MDsveX for markdown content, and uses Masonry for image layouts. Pretty cool, right?';
-			} else if (lowerMessage.includes('hello') || lowerMessage.includes('hi')) {
-				response = 'Hello! 👋 Feel free to ask me anything about this website!';
-			} else if (lowerMessage.includes('help')) {
-				response =
-					'I can help you learn about the different sections of this website: poetry/writing, pictures, and projects. Just ask me about any of them!';
-			} else {
-				response =
-					"That's an interesting question! This website has sections for poetry, pictures, and projects. Feel free to explore them through the navigation menu, or ask me about any specific section!";
+Keep responses concise, friendly, and helpful. Guide visitors to explore the different sections of the website.`;
+
+			const response = await fetch(`${GEMINI_API_URL}?key=${GEMINI_API_KEY}`, {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json'
+				},
+				body: JSON.stringify({
+					contents: [
+						{
+							parts: [
+								{
+									text: systemPrompt
+								}
+							]
+						},
+						{
+							parts: [
+								{
+									text: userMessage
+								}
+							]
+						}
+					],
+					generationConfig: {
+						temperature: 0.7,
+						maxOutputTokens: 256
+					}
+				})
+			});
+
+			if (!response.ok) {
+				throw new Error('Failed to get response from AI');
 			}
 
-			messages = [...messages, { role: 'assistant', content: response }];
+			const data = await response.json();
+			const aiResponse =
+				data.candidates?.[0]?.content?.parts?.[0]?.text ||
+				'Sorry, I could not generate a response.';
+
+			messages = [...messages, { role: 'assistant', content: aiResponse }];
 			scrollToBottom();
 		} catch (error) {
+			console.error('Chat error:', error);
 			messages = [
 				...messages,
 				{
