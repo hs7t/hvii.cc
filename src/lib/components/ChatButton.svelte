@@ -33,7 +33,7 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		box-shadow: 0 4px 12px rgba(0, 49, 211, 0.3);
+		box-shadow: 0 4px 12px color-mix(in srgb, var(--w-color-accent-A) 30%, transparent);
 		transition: transform 0.2s ease;
 		z-index: 1000;
 	}

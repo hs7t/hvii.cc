@@ -182,7 +182,7 @@
 		border-radius: 8px;
 		display: flex;
 		flex-direction: column;
-		box-shadow: 0 8px 24px rgba(0, 49, 211, 0.2);
+		box-shadow: 0 8px 24px color-mix(in srgb, var(--w-color-accent-A) 20%, transparent);
 		z-index: 1001;
 	}
 
@@ -270,7 +270,7 @@
 	}
 
 	.message.assistant .message-content {
-		background-color: #f0f0f0;
+		background-color: var(--w-color-background-B);
 		color: var(--w-color-content-A);
 		border-bottom-left-radius: 4px;
 	}
@@ -327,7 +327,7 @@
 
 	#input-container input:focus {
 		border-color: var(--w-color-accent-A);
-		box-shadow: 0 0 0 2px rgba(0, 49, 211, 0.1);
+		box-shadow: 0 0 0 2px color-mix(in srgb, var(--w-color-accent-A) 10%, transparent);
 	}
 
 	#input-container input:disabled {
