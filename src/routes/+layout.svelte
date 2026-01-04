@@ -3,10 +3,14 @@
 	import { goto } from '$app/navigation';
 	import Header from '$lib/components/Header.svelte';
 	import Navigation from '$lib/components/Navigation.svelte';
+	import ChatButton from '$lib/components/ChatButton.svelte';
+	import Chatbot from '$lib/components/Chatbot.svelte';
 	import { page } from '$app/state';
 	import '$lib/styles/style.css';
 
 	let { children, data } = $props();
+
+	let chatbotOpen = $state(false);
 
 	let favicon =
 		'data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>☀️</text></svg>';
@@ -57,6 +61,21 @@
 	</main>
 	<Navigation id="navigation" />
 </div>
+
+{#if !chatbotOpen}
+	<ChatButton
+		onclick={() => {
+			chatbotOpen = true;
+		}}
+	/>
+{/if}
+
+<Chatbot
+	isOpen={chatbotOpen}
+	onClose={() => {
+		chatbotOpen = false;
+	}}
+/>
 
 <style>
 	#main-container {
