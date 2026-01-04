@@ -1,7 +1,8 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
-
 	let { isOpen, onClose } = $props();
+
+	const MIN_RESPONSE_DELAY = 500;
+	const MAX_RESPONSE_DELAY = 1500;
 
 	let messages = $state<Array<{ role: 'user' | 'assistant'; content: string }>>([
 		{
@@ -34,7 +35,8 @@
 
 		try {
 			// Simple mock AI response - in production, this would call an actual AI API
-			await new Promise((resolve) => setTimeout(resolve, 500 + Math.random() * 1000));
+			const delay = MIN_RESPONSE_DELAY + Math.random() * (MAX_RESPONSE_DELAY - MIN_RESPONSE_DELAY);
+			await new Promise((resolve) => setTimeout(resolve, delay));
 
 			let response = '';
 			const lowerMessage = userMessage.toLowerCase();
@@ -91,10 +93,6 @@
 			sendMessage();
 		}
 	}
-
-	onMount(() => {
-		scrollToBottom();
-	});
 
 	$effect(() => {
 		if (isOpen) {
