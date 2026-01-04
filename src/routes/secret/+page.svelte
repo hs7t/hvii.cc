@@ -8,15 +8,28 @@
 	let timeLeft = $state(30);
 	let highScore = $state(0);
 	let gameMessage = $state('Click "Start" to catch some fish! 🐟');
+	let gameTimer: ReturnType<typeof setInterval> | null = null;
 
 	onMount(() => {
 		const savedHighScore = localStorage.getItem('fishGameHighScore');
 		if (savedHighScore) {
-			highScore = parseInt(savedHighScore);
+			highScore = parseInt(savedHighScore, 10);
 		}
+
+		// Cleanup timer on unmount
+		return () => {
+			if (gameTimer) {
+				clearInterval(gameTimer);
+			}
+		};
 	});
 
 	function startGame() {
+		// Clear any existing timer
+		if (gameTimer) {
+			clearInterval(gameTimer);
+		}
+
 		score = 0;
 		timeLeft = 30;
 		fishSize = 60;
@@ -24,10 +37,10 @@
 		gameMessage = 'Catch the fish! 🐟';
 		moveFish();
 
-		const timer = setInterval(() => {
+		gameTimer = setInterval(() => {
 			timeLeft--;
 			if (timeLeft <= 0) {
-				clearInterval(timer);
+				if (gameTimer) clearInterval(gameTimer);
 				endGame();
 			}
 		}, 1000);
@@ -62,6 +75,10 @@
 
 	function endGame() {
 		gameActive = false;
+		if (gameTimer) {
+			clearInterval(gameTimer);
+			gameTimer = null;
+		}
 
 		if (score > highScore) {
 			highScore = score;
