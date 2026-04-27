@@ -1,6 +1,7 @@
 <section class="primary">
 	<h1>Projects</h1>
 	<div class="paragraph-block">
+		<p><em>Note: This page is quite outdated.</em> Check back soon for new things!</p>
 		<p>I have made a few things!</p>
 		<ul>
 			<li>
