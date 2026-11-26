@@ -5,17 +5,17 @@ import adapter from '@sveltejs/adapter-static';
 import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 
 export default defineConfig({
-    plugins: [sveltekit({
-	// Consult https://svelte.dev/docs/kit/integrations
-	// for more information about preprocessors
-	preprocess: [
-		vitePreprocess(),
-		mdsvex({
-			extensions: ['.md']
+	plugins: [
+		sveltekit({
+			preprocess: [
+				vitePreprocess(),
+				mdsvex({
+					extensions: ['.md']
+				})
+			],
+			adapter: adapter(),
+			alias: { $lib: 'src/lib' },
+			extensions: ['.svelte', '.svx', '.md']
 		})
-	],
-	adapter: adapter(),
-    extensions: ['.svelte', '.svx', '.md'],
-	alias: { '$lib': 'src/lib' }
-    })]
+	]
 });
